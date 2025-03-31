@@ -1,0 +1,46 @@
+﻿@page "/edit-recipe/{id:int}"
+@using RecipesAPI.Models
+@using RecipesWebApp.Services
+@inject RecipeService RecipeService
+@inject NavigationManager Navigation
+
+<h3>Rediger opskrift</h3>
+
+@if (recipe == null)
+{
+    <p>Indlæser...</p>
+}
+else
+{
+    <div>
+        <label>Titel:</label>
+        <input @bind="recipe.Title" class="form-control" />
+
+        <label>Beskrivelse:</label>
+        <textarea @bind="recipe.Description" class="form-control"></textarea>
+
+        <label>Billede URL:</label>
+        <input @bind="recipe.ImageUrl" class="form-control" />
+
+        <button class="btn btn-success mt-3" @onclick="UpdateRecipe">Gem ændringer</button>
+    </div>
+}
+
+@code {
+    [Parameter] public int id { get; set; }
+    private Recipe? recipe;
+
+    protected override async Task OnInitializedAsync()
+    {
+        recipe = await RecipeService.GetRecipeByIdAsync(id);
+    }
+
+    private async Task UpdateRecipe()
+    {
+        if (recipe != null)
+        {
+            await RecipeService.UpdateRecipeAsync(id, recipe);
+            Navigation.NavigateTo("/recipes");
+        }
+    }
+}

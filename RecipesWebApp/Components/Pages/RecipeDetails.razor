@@ -1,0 +1,45 @@
+﻿@page "/recipe/{id:int}"
+@using RecipesAPI.Models
+@using RecipesWebApp.Services
+@inject RecipeService RecipeService
+@inject HttpClient Http
+
+<h3>@(recipe?.Title ?? "Indlæser...")</h3>
+
+@if (recipe is not null)
+{
+    <img src="@recipe.ImageUrl" class="" alt="@recipe.Title" width="300;" height="300">
+
+    <h4>Beskrivelse</h4>
+    <p>@recipe.Description</p>
+    <h4>Ingredienser:</h4>
+    <ul>
+        @foreach (var ingredient in recipe.Ingredients)
+        {
+            <li>@ingredient</li>
+        }
+    </ul>
+    <h4>Fremgangsmåde:</h4>
+    <p>@recipe.Instructions</p>
+
+    <h4>Tilberedningstid:</h4>
+    <p>@recipe.PreparationTime minutter</p>
+
+
+
+}
+else
+{
+    <p>Opskrift ikke fundet.</p>
+}
+
+@code {
+    [Parameter] public int id { get; set; }
+    private Recipe? recipe;
+
+    protected override async Task OnInitializedAsync()
+    {
+        recipe = await RecipeService.GetRecipeByIdAsync(id);
+    }
+}
+

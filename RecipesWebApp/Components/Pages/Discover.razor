@@ -1,0 +1,47 @@
+﻿@page "/discover"
+@using RecipesAPI.Models
+@using RecipesWebApp.Services
+@inject RecipeService RecipeService
+
+<h2>Discover recipes!</h2>
+
+@if (recipes is null)
+{
+    <p>Loading recipes...</p>
+}
+else
+{
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var recipe in recipes)
+            {
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="@recipe.ImageUrl" class="card-img-top" alt="@recipe.Title">
+                        <div class="card-body">
+                            <h5 class="card-title">@recipe.Title</h5>
+                            <a href="/recipe/@recipe.Id" class="btn btn-primary">Se opskrift</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+}
+
+@code {
+    private List<Recipe>? recipes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            recipes = await RecipeService.GetRecipesAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading recipes: {ex.Message}");
+        }
+    }
+}

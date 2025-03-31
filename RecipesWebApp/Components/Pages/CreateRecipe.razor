@@ -1,0 +1,62 @@
+﻿@page "/create-recipe"
+@using RecipesAPI.Models
+@using RecipesWebApp.Services
+@inject RecipeService RecipeService
+@inject NavigationManager Navigation
+
+<h3>Opret en opskrift</h3>
+
+<div>
+    <label>Titel:</label>
+    <input @bind="recipe.Title" class="form-control" />
+
+    <label>Beskrivelse:</label>
+    <textarea @bind="recipe.Description" class="form-control"></textarea>
+
+    <label>Ingredienser:</label>
+    <input @bind="newIngredient" placeholder="Tilføj ingrediens" />
+    <button @onclick="AddIngredient">Tilføj</button>
+
+    <ul>
+        @foreach (var ingredient in recipe.Ingredients)
+        {
+            <li>@ingredient <button @onclick="() => RemoveIngredient(ingredient)">❌</button></li>
+        }
+    </ul>
+
+    <label>Fremgangsmåde:</label>
+    <textarea @bind="recipe.Instructions" class="form-control" placeholder="1. Pisk æggene..."></textarea>
+
+    <label>Tilberedningstid (minutter):</label>
+    <input type="number" @bind="recipe.PreparationTime" class="form-control" />
+
+    <label>Billede URL:</label>
+    <input @bind="recipe.ImageUrl" class="form-control" />
+
+    <button class="btn btn-success mt-3" @onclick="SaveRecipe">Gem opskrift</button>
+</div>
+
+@code {
+    private Recipe recipe = new Recipe();
+    private string newIngredient = string.Empty;
+
+    private void AddIngredient()
+    {
+        if (!string.IsNullOrWhiteSpace(newIngredient))
+        {
+            recipe.Ingredients.Add(newIngredient);
+            newIngredient = string.Empty; 
+        }
+    }
+
+    private void RemoveIngredient(string ingredient)
+    {
+        recipe.Ingredients.Remove(ingredient);
+    }
+
+    private async Task SaveRecipe()
+    {
+        await RecipeService.CreateRecipeAsync(recipe);
+        Navigation.NavigateTo("/recipes");
+    }
+}

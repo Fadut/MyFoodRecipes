@@ -1,0 +1,501 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/RecipeDB/True/SqlTable/dbo.Recipes.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipesapi\\controllers\\recipescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|solutionrelative:recipesapi\\controllers\\recipescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\services\\recipeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\services\\recipeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\components\\pages\\recipes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\components\\pages\\recipes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipesapi\\models\\recipe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|solutionrelative:recipesapi\\models\\recipe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipesapi\\models\\recipedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|solutionrelative:recipesapi\\models\\recipedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipesapi\\services\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|solutionrelative:recipesapi\\services\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipesapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|solutionrelative:recipesapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\components\\pages\\recipedetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\components\\pages\\recipedetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipesapi\\recipesapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|solutionrelative:recipesapi\\recipesapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipesapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|solutionrelative:recipesapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipesapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|solutionrelative:recipesapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\components\\pages\\editrecipe.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\components\\pages\\editrecipe.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\components\\pages\\createrecipe.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\components\\pages\\createrecipe.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\components\\pages\\test.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\components\\pages\\test.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FoodRecipesContext_958c3543_fc4c_4bc9_9672_e1a3169b6822/True/SqlTable/dbo.Recipe.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipesapi\\recipesapi.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{B0047D8C-8E32-421A-BD76-3DB88844920B}|RecipesAPI\\RecipesAPI.csproj|solutionrelative:recipesapi\\recipesapi.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\recipeswebapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\recipeswebapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|c:\\users\\faton\\source\\repos\\myfoodrecipes\\recipeswebapp\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{181469A1-8312-4ACB-ADA9-1BA0C5515416}|RecipesWebApp\\RecipesWebApp.csproj|solutionrelative:recipeswebapp\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RecipeService.cs",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Services\\RecipeService.cs",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Services\\RecipeService.cs",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Services\\RecipeService.cs",
+              "RelativeToolTip": "RecipesWebApp\\Services\\RecipeService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T17:47:04.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Program.cs",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Program.cs",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Program.cs",
+              "RelativeToolTip": "RecipesWebApp\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T15:51:23.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\Program.cs",
+              "RelativeDocumentMoniker": "RecipesAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\Program.cs",
+              "RelativeToolTip": "RecipesAPI\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T16:22:23.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\Services\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "RecipesAPI\\Services\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\Services\\ApplicationDbContext.cs",
+              "RelativeToolTip": "RecipesAPI\\Services\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T13:46:28.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RecipeDto.cs",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\Models\\RecipeDto.cs",
+              "RelativeDocumentMoniker": "RecipesAPI\\Models\\RecipeDto.cs",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\Models\\RecipeDto.cs",
+              "RelativeToolTip": "RecipesAPI\\Models\\RecipeDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T22:27:38.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Recipe.cs",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\Models\\Recipe.cs",
+              "RelativeDocumentMoniker": "RecipesAPI\\Models\\Recipe.cs",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\Models\\Recipe.cs",
+              "RelativeToolTip": "RecipesAPI\\Models\\Recipe.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T21:39:25.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RecipesController.cs",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\Controllers\\RecipesController.cs",
+              "RelativeDocumentMoniker": "RecipesAPI\\Controllers\\RecipesController.cs",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\Controllers\\RecipesController.cs",
+              "RelativeToolTip": "RecipesAPI\\Controllers\\RecipesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T21:51:32.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Recipes.razor",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\Recipes.razor",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Components\\Pages\\Recipes.razor",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\Recipes.razor",
+              "RelativeToolTip": "RecipesWebApp\\Components\\Pages\\Recipes.razor",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAD4AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T10:35:59.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "dbo.Recipes [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/RecipeDB/True/SqlTable/dbo.Recipes.sql",
+              "ToolTip": "dbo.Recipes [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-03-27T12:41:12.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RecipeDetails.razor",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\RecipeDetails.razor",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Components\\Pages\\RecipeDetails.razor",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\RecipeDetails.razor",
+              "RelativeToolTip": "RecipesWebApp\\Components\\Pages\\RecipeDetails.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T13:26:52.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "RecipesAPI.csproj",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\RecipesAPI.csproj",
+              "RelativeDocumentMoniker": "RecipesAPI\\RecipesAPI.csproj",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\RecipesAPI.csproj",
+              "RelativeToolTip": "RecipesAPI\\RecipesAPI.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-22T21:34:17.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Error.razor",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\Error.razor",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Components\\Pages\\Error.razor",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\Error.razor",
+              "RelativeToolTip": "RecipesWebApp\\Components\\Pages\\Error.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T15:59:19.998Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\appsettings.json",
+              "RelativeDocumentMoniker": "RecipesWebApp\\appsettings.json",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\appsettings.json",
+              "RelativeToolTip": "RecipesWebApp\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-26T15:53:34.702Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "RecipesAPI\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "RecipesAPI\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-22T22:36:18.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "RecipesAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\appsettings.json",
+              "RelativeToolTip": "RecipesAPI\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-22T21:27:12.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "EditRecipe.razor",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\EditRecipe.razor",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Components\\Pages\\EditRecipe.razor",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\EditRecipe.razor",
+              "RelativeToolTip": "RecipesWebApp\\Components\\Pages\\EditRecipe.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T10:39:23.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CreateRecipe.razor",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\CreateRecipe.razor",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Components\\Pages\\CreateRecipe.razor",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\CreateRecipe.razor",
+              "RelativeToolTip": "RecipesWebApp\\Components\\Pages\\CreateRecipe.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T10:38:31.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Test.razor",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\Test.razor",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Components\\Pages\\Test.razor",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\Test.razor",
+              "RelativeToolTip": "RecipesWebApp\\Components\\Pages\\Test.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T17:25:56.636Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "RecipesWebApp\\Components\\Pages\\Home.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T15:54:12.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Weather.razor",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\Weather.razor",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Components\\Pages\\Weather.razor",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\Weather.razor",
+              "RelativeToolTip": "RecipesWebApp\\Components\\Pages\\Weather.razor",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T15:59:12.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "dbo.Recipe [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FoodRecipesContext_958c3543_fc4c_4bc9_9672_e1a3169b6822/True/SqlTable/dbo.Recipe.sql",
+              "ToolTip": "dbo.Recipe [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-03-27T13:59:51.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "RecipesAPI",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\RecipesAPI.csproj",
+              "RelativeDocumentMoniker": "RecipesAPI\\RecipesAPI.csproj",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesAPI\\RecipesAPI.csproj",
+              "RelativeToolTip": "RecipesAPI\\RecipesAPI.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-27T13:58:53.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "RecipesWebApp\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T15:54:21.164Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\App.razor",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Components\\App.razor",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\App.razor",
+              "RelativeToolTip": "RecipesWebApp\\Components\\App.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T15:54:15.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Components\\_Imports.razor",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\_Imports.razor",
+              "RelativeToolTip": "RecipesWebApp\\Components\\_Imports.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T15:54:19.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "RecipesWebApp\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T15:54:22.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Routes.razor",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Routes.razor",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Components\\Routes.razor",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Routes.razor",
+              "RelativeToolTip": "RecipesWebApp\\Components\\Routes.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T15:54:42.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Counter.razor",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\Counter.razor",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Components\\Pages\\Counter.razor",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Components\\Pages\\Counter.razor",
+              "RelativeToolTip": "RecipesWebApp\\Components\\Pages\\Counter.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T15:54:05.311Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "RecipesWebApp.csproj",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\RecipesWebApp.csproj",
+              "RelativeDocumentMoniker": "RecipesWebApp\\RecipesWebApp.csproj",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\RecipesWebApp.csproj",
+              "RelativeToolTip": "RecipesWebApp\\RecipesWebApp.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-26T17:46:22.43Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "RecipesWebApp\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Faton\\source\\repos\\MyFoodRecipes\\RecipesWebApp\\Properties\\launchSettings.json",
+              "RelativeToolTip": "RecipesWebApp\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-26T15:53:40.317Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
