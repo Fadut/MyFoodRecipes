@@ -398,3 +398,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/.vs
+/.vs/MyFoodRecipes
+/.vs/MyFoodRecipes/v17
+.vs/ProjectEvaluation/myfoodrecipes.metadata.v7.bin
+/RecipesWebApp/obj
