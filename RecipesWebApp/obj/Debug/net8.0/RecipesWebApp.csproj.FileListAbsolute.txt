@@ -93,3 +93,4 @@ C:\Users\Faton\source\repos\MyFoodRecipes\RecipesWebApp\bin\Debug\net8.0\Recipes
 C:\Users\Faton\source\repos\MyFoodRecipes\RecipesWebApp\obj\Debug\net8.0\RecipesWebApp.csproj.AssemblyReference.cache
 C:\Users\Faton\source\repos\MyFoodRecipes\RecipesWebApp\obj\Debug\net8.0\RecipesWebApp.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Faton\source\repos\MyFoodRecipes\RecipesWebApp\obj\Debug\net8.0\RecipesW.D607613F.Up2Date
+C:\Users\Faton\source\repos\MyFoodRecipes\RecipesWebApp\obj\Debug\net8.0\RecipesWebApp.sourcelink.json

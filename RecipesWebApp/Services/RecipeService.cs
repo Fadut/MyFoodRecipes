@@ -1,4 +1,5 @@
 ﻿using RecipesAPI.Models;
+using static System.Net.WebRequestMethods;
 
 namespace RecipesWebApp.Services
 {
@@ -34,8 +35,19 @@ namespace RecipesWebApp.Services
 
         public async Task DeleteRecipeAsync(int id)
         {
-            //var deleteUri = $"{_baseUri}/{id}"; Consider adding.
             await _httpClient.DeleteAsync($"api/recipes/{id}");
         }
+
+        public async Task<List<Recipe>> SearchRecipesAsync(string? title, string? ingredient, int? preparationTime)
+        {
+            var url = "api/recipes/search?";
+            if (!string.IsNullOrWhiteSpace(title)) url += $"title={title}&";
+            if (!string.IsNullOrWhiteSpace(ingredient)) url += $"ingredient={ingredient}&";
+            if (preparationTime.HasValue) url += $"preparationTime={preparationTime}&";
+
+            return await _httpClient.GetFromJsonAsync<List<Recipe>>(url);
+        }
+
+
     }
 }

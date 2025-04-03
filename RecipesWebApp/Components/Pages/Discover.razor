@@ -5,13 +5,20 @@
 
 <h2>Discover recipes!</h2>
 
-@if (recipes is null)
+<div class="mb-3">
+    <input @bind="title" class="form-control" placeholder="Søg efter titel" />
+</div>
+<div class="mb-3">
+    <input @bind="ingredient" class="form-control" placeholder="Filter på ingredienser" />
+</div>
+<div class="mb-3">
+    <input type="number" @bind="preparationTime" class="form-control" placeholder="Maks tid (min)" />
+</div>
+<button class="btn btn-primary" @onclick="SearchRecipes">Søg</button>
+
+@if (recipes is not null && recipes.Any())
 {
-    <p>Loading recipes...</p>
-}
-else
-{
-    <div class="container">
+    <div class="container mt-4">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach (var recipe in recipes)
             {
@@ -20,28 +27,35 @@ else
                         <img src="@recipe.ImageUrl" class="card-img-top" alt="@recipe.Title">
                         <div class="card-body">
                             <h5 class="card-title">@recipe.Title</h5>
-                            <a href="/recipe/@recipe.Id" class="btn btn-primary">Se opskrift</a>
+                            <p>@recipe.Description</p>
+                            <span class="badge bg-info">@recipe.PreparationTime min</span>
+                            <a href="/recipe/@recipe.Id" class="btn btn-primary">Se Opskrift</a>
                         </div>
                     </div>
                 </div>
             }
         </div>
     </div>
-
+}
+else if (recipes is not null && !recipes.Any())
+{
+    <p>Ingen opskrifter fundet.</p>
 }
 
 @code {
     private List<Recipe>? recipes;
 
+    private string? title;
+    private string? ingredient;
+    private int? preparationTime;
+
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            recipes = await RecipeService.GetRecipesAsync();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error loading recipes: {ex.Message}");
-        }
+        recipes = await RecipeService.GetRecipesAsync();
+    }
+
+    private async Task SearchRecipes()
+    {
+        recipes = await RecipeService.SearchRecipesAsync(title, ingredient, preparationTime);
     }
 }

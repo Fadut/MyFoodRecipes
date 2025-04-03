@@ -166,3 +166,4 @@ C:\Users\Faton\source\repos\MyFoodRecipes\RecipesAPI\obj\Debug\net8.0\refint\Rec
 C:\Users\Faton\source\repos\MyFoodRecipes\RecipesAPI\obj\Debug\net8.0\RecipesAPI.pdb
 C:\Users\Faton\source\repos\MyFoodRecipes\RecipesAPI\obj\Debug\net8.0\RecipesAPI.genruntimeconfig.cache
 C:\Users\Faton\source\repos\MyFoodRecipes\RecipesAPI\obj\Debug\net8.0\ref\RecipesAPI.dll
+C:\Users\Faton\source\repos\MyFoodRecipes\RecipesAPI\obj\Debug\net8.0\RecipesAPI.sourcelink.json

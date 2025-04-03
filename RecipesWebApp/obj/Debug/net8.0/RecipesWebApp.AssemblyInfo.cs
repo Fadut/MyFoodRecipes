@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RecipesWebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+529b195268800af950a4a8981864dfc21af74212")]
 [assembly: System.Reflection.AssemblyProductAttribute("RecipesWebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RecipesWebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

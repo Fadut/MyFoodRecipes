@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RecipesAPI.Migrations;
 using RecipesAPI.Models;
 using RecipesAPI.Services;
 
@@ -89,6 +90,30 @@ namespace RecipesAPI.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchRecipes([FromQuery] string? title, [FromQuery] string? ingredient, [FromQuery] int? preparationTime)
+        {
+            var query = _context.Recipes.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(title))
+            {
+                query = query.Where(r => r.Title.Contains(title));
+            }
+
+            if (!string.IsNullOrWhiteSpace(ingredient))
+            {
+                query = query.Where(r => r.Ingredients.Any(i => i.Contains(ingredient)));
+            }
+
+            if (preparationTime.HasValue)
+            {
+                query = query.Where(r => r.PreparationTime <= preparationTime.Value);
+            }
+
+            var results = await query.ToListAsync();
+            return Ok(results);
         }
 
 
