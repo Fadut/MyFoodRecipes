@@ -403,3 +403,7 @@ FodyWeavers.xsd
 /.vs/MyFoodRecipes/v17
 .vs/ProjectEvaluation/myfoodrecipes.metadata.v7.bin
 /RecipesWebApp/obj
+bin/
+obj/
+.vs/
+*.user
