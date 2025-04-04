@@ -19,6 +19,20 @@ else
         <label>Beskrivelse:</label>
         <textarea @bind="recipe.Description" class="form-control"></textarea>
 
+        <label>Ingredienser:</label>
+        <input @bind="newIngredient" placeholder="Tilføj ingrediens" />
+        <button @onclick="AddIngredient">Tilføj</button>
+
+        <ul>
+            @foreach (var ingredient in recipe.Ingredients)
+            {
+                <li>@ingredient <button @onclick="() => RemoveIngredient(ingredient)">❌</button></li>
+            }
+        </ul>
+
+        <label>Fremgangsmåde:</label>
+        <textarea @bind="recipe.Instructions" class="form-control" placeholder="1. Pisk æggene..."></textarea>
+
         <label>Billede URL:</label>
         <input @bind="recipe.ImageUrl" class="form-control" />
 
@@ -29,6 +43,21 @@ else
 @code {
     [Parameter] public int id { get; set; }
     private Recipe? recipe;
+    private string newIngredient = string.Empty;
+
+    private void AddIngredient()
+    {
+        if (!string.IsNullOrWhiteSpace(newIngredient))
+        {
+            recipe.Ingredients.Add(newIngredient);
+            newIngredient = string.Empty;
+        }
+    }
+
+    private void RemoveIngredient(string ingredient)
+    {
+        recipe.Ingredients.Remove(ingredient);
+    }
 
     protected override async Task OnInitializedAsync()
     {

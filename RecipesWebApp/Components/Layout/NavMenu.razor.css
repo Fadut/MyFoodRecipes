@@ -17,7 +17,7 @@
 
 .top-row {
     height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 50, 0, 0.8); /* This changes the top-part color. Dark green color */ 
 }
 
 .navbar-brand {
