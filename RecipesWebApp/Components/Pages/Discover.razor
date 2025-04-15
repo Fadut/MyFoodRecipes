@@ -5,16 +5,88 @@
 
 <h2>Discover recipes!</h2>
 
-<div class="mb-3">
-    <input @bind="title" class="form-control" placeholder="Søg efter titel" />
+<div class="search-form mb-4">
+    <input type="text" @bind="title" class="form-control mb-2" placeholder="Search by title" />
+    <input type="text" @bind="ingredient" class="form-control mb-2" placeholder="Filter by ingredient: e.g. Kylling" />
+    <input type="number" @bind="preparationTime" class="form-control mb-2" placeholder="Filter by max time (min.)" />
+
+    <select @bind="selectedCategory" class="form-select form-select-lg mb-3 w-25">
+        <option value="">-- Choose category --</option>
+        <option value="Breakfast">Breakfast</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Dinner">Dinner</option>
+        <option value="Dessert">Dessert</option>
+    </select>
+
+    <select @bind="selectedCuisineType" class="form-select form-select-lg mb-3 w-25">
+        <option value="">-- Choose cuisine type --</option>
+        <option value="Global">Global</option>
+        <option value="Nordic">Nordic</option>
+        <option value="Asian">Asian</option>
+        <option value="Italian">Italian</option>
+        <option value="Indian">Indian</option>
+        <option value="African">African</option>
+        <option value="Mexican">Mexican</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Thai">Thai</option>
+    </select>
+
+    <button class="btn btn-primary w-25" @onclick="SearchRecipes">Search</button>
+
 </div>
-<div class="mb-3">
-    <input @bind="ingredient" class="form-control" placeholder="Filter på ingredienser" />
+
+<h2>Choose a category below!</h2>
+
+<div class="container mt-4 mb-2">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <div class="col">
+            <NavLink href="/category/Breakfast" class="card h-100 text-decoration-none border-0 shadow-sm">
+                <div class="position-relative">
+                    <img src="/images/breakfast.jpg" class="card-img-top img-fluid" alt="Breakfast" style="object-fit: cover; height: 200px;">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 text-white p-2">
+                        <h5 class="card-title mb-0">🥐 Breakfast</h5>
+                    </div>
+                </div>
+            </NavLink>
+        </div>
+
+        <div class="col">
+            <NavLink href="/category/Lunch" class="card h-100 text-decoration-none border-0 shadow-sm">
+                <div class="position-relative">
+                    <img src="/images/lunch.jpg" class="card-img-top img-fluid" alt="Lunch" style="object-fit: cover; height: 200px;">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 text-white p-2">
+                        <h5 class="card-title mb-0">🥪 Lunch</h5>
+                    </div>
+                </div>
+            </NavLink>
+        </div>
+
+        <div class="col">
+            <NavLink href="/category/Dinner" class="card h-100 text-decoration-none border-0 shadow-sm">
+                <div class="position-relative">
+                    <img src="/images/dinner.jpg" class="card-img-top img-fluid" alt="Dinner" style="object-fit: cover; height: 200px;">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 text-white p-2">
+                        <h5 class="card-title mb-0">🍝 Dinner</h5>
+                    </div>
+                </div>
+            </NavLink>
+        </div>
+
+        <div class="col">
+            <NavLink href="/category/Dessert" class="card h-100 text-decoration-none border-0 shadow-sm">
+                <div class="position-relative">
+                    <img src="/images/dessert.jpg" class="card-img-top img-fluid" alt="Dessert" style="object-fit: cover; height: 200px;">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 text-white p-2">
+                        <h5 class="card-title mb-0">🍰 Dessert</h5>
+                    </div>
+                </div>
+            </NavLink>
+        </div>
+    </div>
 </div>
-<div class="mb-3">
-    <input type="number" @bind="preparationTime" class="form-control" placeholder="Maks tid (min)" />
-</div>
-<button class="btn btn-primary" @onclick="SearchRecipes">Søg</button>
+
+<h2>Or browse through all available recipes below!</h2>
+
 
 @if (recipes is not null && recipes.Any())
 {
@@ -28,7 +100,7 @@
                             <img src="@recipe.ImageUrl" class="card-img-top img-fluid" alt="@recipe.Title" style="object-fit: cover; height: 200px;">
                             <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 text-white p-2">
                                 <h5 class="card-title mb-1">@recipe.Title</h5>
-                                <span class="badge bg-info">@recipe.PreparationTime min</span>
+                                <span class="badge rounded-pill bg-info text-dark align-self-start">@recipe.PreparationTime min</span>
                             </div>
                         </div>
                     </a>
@@ -39,7 +111,7 @@
 }
 else if (recipes is not null && !recipes.Any())
 {
-    <p>Ingen opskrifter fundet.</p>
+    <p>No recipes found.</p>
 }
 
 
@@ -49,6 +121,8 @@ else if (recipes is not null && !recipes.Any())
     private string? title;
     private string? ingredient;
     private int? preparationTime;
+    private string? selectedCategory;
+    private string? selectedCuisineType;
 
     protected override async Task OnInitializedAsync()
     {
@@ -57,6 +131,6 @@ else if (recipes is not null && !recipes.Any())
 
     private async Task SearchRecipes()
     {
-        recipes = await RecipeService.SearchRecipesAsync(title, ingredient, preparationTime);
+        recipes = await RecipeService.SearchRecipesAsync(title, ingredient, preparationTime, selectedCategory, selectedCuisineType);
     }
 }

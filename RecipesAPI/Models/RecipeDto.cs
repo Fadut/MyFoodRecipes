@@ -20,5 +20,10 @@ namespace RecipesAPI.Models
         public int PreparationTime { get; set; }
 
         public string ImageUrl { get; set; } = string.Empty;
+
+        public string Category { get; set; } = string.Empty;
+
+        public string CuisineType { get; set; } = string.Empty;
+
     }
 }

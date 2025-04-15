@@ -22,6 +22,11 @@ namespace RecipesWebApp.Services
         {
             return await _httpClient.GetFromJsonAsync<Recipe>($"api/recipes/{id}");
         }
+        
+        public async Task<List<Recipe>> GetRecipesByCategoryAsync(string category)
+        {
+            return await _httpClient.GetFromJsonAsync<List<Recipe>>($"api/recipes/category/{category}");
+        }
 
         public async Task CreateRecipeAsync(Recipe recipe)
         {
@@ -38,12 +43,18 @@ namespace RecipesWebApp.Services
             await _httpClient.DeleteAsync($"api/recipes/{id}");
         }
 
-        public async Task<List<Recipe>> SearchRecipesAsync(string? title, string? ingredient, int? preparationTime)
+        public async Task<List<Recipe>> SearchRecipesAsync(string? title, string? ingredient, int? preparationTime, string? category, string? cuisineType)
         {
-            var url = "api/recipes/search?";
-            if (!string.IsNullOrWhiteSpace(title)) url += $"title={title}&";
-            if (!string.IsNullOrWhiteSpace(ingredient)) url += $"ingredient={ingredient}&";
-            if (preparationTime.HasValue) url += $"preparationTime={preparationTime}&";
+            var queryParams = new List<string>();
+
+            if (!string.IsNullOrWhiteSpace(title)) queryParams.Add($"title={title}");
+            if (!string.IsNullOrWhiteSpace(ingredient)) queryParams.Add($"ingredient={ingredient}");
+            if (preparationTime.HasValue) queryParams.Add($"preparationTime={preparationTime}");
+            if (!string.IsNullOrWhiteSpace(category)) queryParams.Add($"category={category}");
+            if (!string.IsNullOrWhiteSpace(cuisineType)) queryParams.Add($"cuisineType={cuisineType}");
+
+            var queryString = string.Join("&", queryParams);
+            var url = $"api/recipes/search?{queryString}";
 
             return await _httpClient.GetFromJsonAsync<List<Recipe>>(url);
         }

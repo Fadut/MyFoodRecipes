@@ -1,0 +1,85 @@
+﻿@page "/category/{category}"
+@using RecipesWebApp.Services
+@using RecipesAPI.Models
+@inject RecipeService RecipeService
+
+<h3>Recipes in the category: @Category</h3>
+
+<div class="search-form mb-4">
+    <input type="text" @bind="title" class="form-control mb-2" placeholder="Search by title" />
+    <input type="text" @bind="ingredient" class="form-control mb-2" placeholder="Filter by ingredient: e.g. Kylling" />
+    <input type="number" @bind="preparationTime" class="form-control mb-2" placeholder="Filter by max time (min.)" />
+
+    <select @bind="selectedCategory" class="form-select form-select-lg mb-3 w-25">
+        <option value="">-- Choose category --</option>
+        <option value="Breakfast">Breakfast</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Dinner">Dinner</option>
+        <option value="Dessert">Dessert</option>
+    </select>
+
+    <select @bind="selectedCuisineType" class="form-select form-select-lg mb-3 w-25">
+        <option value="">-- Choose cuisine type --</option>
+        <option value="Global">Global</option>
+        <option value="Nordic">Nordic</option>
+        <option value="Asian">Asian</option>
+        <option value="Italian">Italian</option>
+        <option value="Indian">Indian</option>
+        <option value="African">African</option>
+        <option value="Mexican">Mexican</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Thai">Thai</option>
+    </select>
+
+    <button class="btn btn-primary w-25" @onclick="SearchRecipes">Search</button>
+
+</div>
+
+@if (recipes is not null && recipes.Any())
+{
+    <div class="container mt-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var recipe in recipes)
+            {
+                <div class="col">
+                    <a href="/recipe/@recipe.Id" class="card h-100 text-decoration-none border-0 shadow-sm">
+                        <div class="position-relative">
+                            <img src="@recipe.ImageUrl" class="card-img-top img-fluid" alt="@recipe.Title" style="object-fit: cover; height: 200px;">
+                            <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 text-white p-2">
+                                <h5 class="card-title mb-1">@recipe.Title</h5>
+                                <span class="badge rounded-pill bg-info text-dark align-self-start">@recipe.PreparationTime min</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+}
+else if (recipes is not null && !recipes.Any())
+{
+    <p>No recipes found.</p>
+}
+
+@code {
+    [Parameter] public string Category { get; set; }
+
+    private List<Recipe>? recipes;
+
+    private string? title;
+    private string? ingredient;
+    private int? preparationTime;
+    private string? selectedCategory;
+    private string? selectedCuisineType;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        recipes = await RecipeService.GetRecipesByCategoryAsync(Category);
+    }
+
+    private async Task SearchRecipes()
+    {
+        recipes = await RecipeService.SearchRecipesAsync(title, ingredient, preparationTime, Category, selectedCuisineType); 
+        // Method uses Category instead of selectedCategory parameter. Eliminates search results from other categories.
+    }
+}

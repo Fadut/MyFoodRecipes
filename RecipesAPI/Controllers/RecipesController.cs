@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RecipesAPI.Migrations;
@@ -7,8 +9,8 @@ using RecipesAPI.Services;
 
 namespace RecipesAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class RecipesController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -22,6 +24,17 @@ namespace RecipesAPI.Controllers
         public async Task<IActionResult> GetRecipes()
         {
             var recipes = await _context.Recipes.OrderByDescending(e => e.Id).ToListAsync();
+            return Ok(recipes);
+        }
+
+        [HttpGet("category/{category}")]
+        public async Task<IActionResult> GetRecipesByCategory(string category)
+        {
+            var recipes = await _context.Recipes
+                .Where(e => e.Category.ToLower() == category.ToLower())
+                .OrderByDescending(r => r.Id)
+                .ToListAsync();
+
             return Ok(recipes);
         }
 
@@ -48,6 +61,8 @@ namespace RecipesAPI.Controllers
                 Instructions = recipeDto.Instructions,
                 PreparationTime = recipeDto.PreparationTime,
                 ImageUrl = recipeDto.ImageUrl,
+                Category = recipeDto.Category,
+                CuisineType = recipeDto.CuisineType
             };
 
             _context.Recipes.Add(recipe);
@@ -71,6 +86,10 @@ namespace RecipesAPI.Controllers
             recipe.Instructions = recipeDto.Instructions;
             recipe.PreparationTime = recipeDto.PreparationTime;
             recipe.ImageUrl = recipeDto.ImageUrl;
+            recipe.Category = recipeDto.Category;
+            recipe.CuisineType = recipeDto.CuisineType;
+
+
 
             await _context.SaveChangesAsync();
 
@@ -93,28 +112,34 @@ namespace RecipesAPI.Controllers
         }
 
         [HttpGet("search")]
-        public async Task<IActionResult> SearchRecipes([FromQuery] string? title, [FromQuery] string? ingredient, [FromQuery] int? preparationTime)
+        public async Task<IActionResult> SearchRecipes(
+            [FromQuery] string? title,
+            [FromQuery] string? ingredient,
+            [FromQuery] int? preparationTime,
+            [FromQuery] string? category,
+            [FromQuery] string? cuisineType)
         {
             var query = _context.Recipes.AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(title))
-            {
                 query = query.Where(r => r.Title.Contains(title));
-            }
 
             if (!string.IsNullOrWhiteSpace(ingredient))
-            {
                 query = query.Where(r => r.Ingredients.Any(i => i.Contains(ingredient)));
-            }
 
             if (preparationTime.HasValue)
-            {
                 query = query.Where(r => r.PreparationTime <= preparationTime.Value);
-            }
+
+            if (!string.IsNullOrWhiteSpace(category))
+                query = query.Where(r => r.Category == category);
+
+            if (!string.IsNullOrWhiteSpace(cuisineType))
+                query = query.Where(r => r.CuisineType == cuisineType);
 
             var results = await query.ToListAsync();
             return Ok(results);
         }
+
 
 
     }

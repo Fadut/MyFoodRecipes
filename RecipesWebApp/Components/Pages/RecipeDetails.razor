@@ -4,33 +4,39 @@
 @inject RecipeService RecipeService
 @inject HttpClient Http
 
-<h3>@(recipe?.Title ?? "Indlæser...")</h3>
+<h3>@(recipe?.Title ?? "Loading...")</h3>
 
 @if (recipe is not null)
 {
     <img src="@recipe.ImageUrl" class="card-img-top img-fluid" alt="@recipe.Title" style="object-fit: cover; height: 300px; width: 300px;">
 
-    <h4>Beskrivelse</h4>
+    <h4>Description</h4>
     <p>@recipe.Description</p>
-    <h4>Ingredienser:</h4>
+
+    <h4>Ingredients:</h4>
     <ul>
         @foreach (var ingredient in recipe.Ingredients)
         {
             <li>@ingredient</li>
         }
     </ul>
-    <h4>Fremgangsmåde:</h4>
+
+    <h4>Instructions:</h4>
     <p>@recipe.Instructions</p>
 
-    <h4>Tilberedningstid:</h4>
-    <p>@recipe.PreparationTime minutter</p>
+    <h4>Preparation time:</h4>
+    <p>@recipe.PreparationTime minutes</p>
 
+    <h4>Category</h4>
+   <p>@recipe.Category</p>
 
+   <h4>Cuisine Type</h4>
+   <p>@recipe.CuisineType</p>
 
 }
 else
 {
-    <p>Opskrift ikke fundet.</p>
+    <p>Recipe not found.</p>
 }
 
 @code {

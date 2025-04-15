@@ -4,24 +4,24 @@
 @inject RecipeService RecipeService
 @inject NavigationManager Navigation
 
-<h3>Rediger opskrift</h3>
+<h3>Edit recipe</h3>
 
 @if (recipe == null)
 {
-    <p>Indlæser...</p>
+    <p>Loading...</p>
 }
 else
 {
     <div>
-        <label>Titel:</label>
+        <label>Title:</label>
         <input @bind="recipe.Title" class="form-control" />
 
-        <label>Beskrivelse:</label>
+        <label>Description:</label>
         <textarea @bind="recipe.Description" class="form-control"></textarea>
 
-        <label>Ingredienser:</label>
-        <input @bind="newIngredient" placeholder="Tilføj ingrediens" />
-        <button @onclick="AddIngredient">Tilføj</button>
+        <label>Ingredients:</label>
+        <input @bind="newIngredient" placeholder="Add ingredient" />
+        <button @onclick="AddIngredient">Add</button>
 
         <ul>
             @foreach (var ingredient in recipe.Ingredients)
@@ -30,13 +30,36 @@ else
             }
         </ul>
 
-        <label>Fremgangsmåde:</label>
-        <textarea @bind="recipe.Instructions" class="form-control" placeholder="1. Pisk æggene..."></textarea>
+        <label>Instructions:</label>
+        <textarea @bind="recipe.Instructions" class="form-control" placeholder="1. Whip the eggs..."></textarea>
 
-        <label>Billede URL:</label>
+        <label>Image URL:</label>
         <input @bind="recipe.ImageUrl" class="form-control" />
 
-        <button class="btn btn-success mt-3" @onclick="UpdateRecipe">Gem ændringer</button>
+        <label>Category</label>
+        <select @bind="recipe.Category" class="form-control mb-2">
+            <option value="">Choose a category</option>
+            <option>Breakfast</option>
+            <option>Lunch</option>
+            <option>Dinner</option>
+            <option>Dessert</option>
+        </select>
+
+        <label>Cuisine type</label>
+        <select @bind="recipe.CuisineType" class="form-control mb-2">
+            <option value="">Vælg køkken</option>
+            <option>Global</option>
+            <option>Nordic</option>
+            <option>Asian</option>
+            <option>Italian</option>
+            <option>Indian</option>
+            <option>African</option>
+            <option>Mexican</option>
+            <option>Japanese</option>
+            <option>Thai</option>
+        </select>
+
+        <button class="btn btn-success mt-3" @onclick="UpdateRecipe">Save changes</button>
     </div>
 }
 

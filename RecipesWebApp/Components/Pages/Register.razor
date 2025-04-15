@@ -1,0 +1,68 @@
+﻿@page "/register"
+@using Microsoft.AspNetCore.Identity
+@using System.ComponentModel.DataAnnotations
+@using RecipesWebApp.Services
+@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<IdentityUser> SignInManager
+@inject NavigationManager Navigation
+@inject AuthService AuthService
+
+<h3 class="mt-4 mb-3 text-center">Sign up to get access to exclusive content</h3>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <EditForm Model="registerModel" OnValidSubmit="HandleRegister">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="form-group mb-3">
+                    <label for="username">Username</label>
+                    <InputText id="username" class="form-control" @bind-Value="registerModel.Username" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="password">Password</label>
+                    <InputText id="password" type="password" class="form-control" @bind-Value="registerModel.Password" />
+                </div>
+
+                <button type="submit" class="btn btn-success">Register</button>
+            </EditForm>
+
+            @if (!string.IsNullOrEmpty(message))
+            {
+                <div class="alert alert-info text-center">@message</div>
+            }
+
+        </div>
+    </div>
+</div>
+
+@code {
+    private RegisterModel registerModel = new();
+    private string? message;
+
+    private async Task HandleRegister()
+    {
+        var success = await AuthService.RegisterAsync(registerModel.Username, registerModel.Password);
+
+        if (success)
+        {
+            message = "Registration successful!";
+            Navigation.NavigateTo("/login");
+        }
+        else
+        {
+            message = "Registration failed.";
+        }
+    }
+
+    public class RegisterModel
+    {
+        [Required]
+        public string Username { get; set; } = string.Empty;
+
+        [Required]
+        public string Password { get; set; } = string.Empty;
+    }
+}
