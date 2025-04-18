@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using RecipesAPI.Migrations;
 using RecipesAPI.Models;
 using RecipesAPI.Services;
+using System.Security.Claims;
 
 namespace RecipesAPI.Controllers
 {
@@ -50,9 +51,36 @@ namespace RecipesAPI.Controllers
             return Ok(recipe);
         }
 
+        [HttpGet("myrecipes")]
+        [Authorize]
+        public async Task<IActionResult> GetMyRecipes()
+        {
+            var ownerId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (ownerId is null)
+            {
+                return Unauthorized();
+            }
+
+            var recipes = await _context.Recipes
+                .Where(r => r.OwnerId == ownerId)
+                .OrderByDescending(r => r.Id)
+                .ToListAsync();
+
+            return Ok(recipes);
+        }
+
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> CreateRecipe([FromBody] RecipeDto recipeDto)
         {
+            var ownerId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (ownerId is null)
+            {
+                return Unauthorized();
+            }
+
             var recipe = new Recipe
             {
                 Title = recipeDto.Title,
@@ -62,7 +90,8 @@ namespace RecipesAPI.Controllers
                 PreparationTime = recipeDto.PreparationTime,
                 ImageUrl = recipeDto.ImageUrl,
                 Category = recipeDto.Category,
-                CuisineType = recipeDto.CuisineType
+                CuisineType = recipeDto.CuisineType,
+                OwnerId = ownerId
             };
 
             _context.Recipes.Add(recipe);

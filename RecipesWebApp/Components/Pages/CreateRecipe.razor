@@ -1,10 +1,12 @@
 ﻿@page "/create-recipe"
+@using Microsoft.AspNetCore.Authorization
 @using RecipesAPI.Models
 @using RecipesWebApp.Services
 @inject RecipeService RecipeService
 @inject NavigationManager Navigation
+@attribute [Authorize]
 
-<h3>Create a recipe</h3>
+<h3>Opret en opskrift</h3>
 
 <div>
     <label>Title:</label>
@@ -60,7 +62,7 @@
 </div>
 
 @code {
-    private Recipe recipe = new Recipe();
+    private RecipeDto recipe = new RecipeDto();
     private string newIngredient = string.Empty;
 
     private void AddIngredient()

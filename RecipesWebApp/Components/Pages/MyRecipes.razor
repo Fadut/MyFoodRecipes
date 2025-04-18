@@ -1,0 +1,54 @@
+﻿@page "/myrecipes"
+@using RecipesAPI.Models
+@using RecipesWebApp.Services
+@inject RecipeService RecipeService
+@inject NavigationManager NavManager
+@inject AuthenticationStateProvider AuthProvider
+
+<AuthorizeView>
+    <Authorized>
+        <h3>Mine Opskrifter</h3>
+
+        @if (recipes is null)
+        {
+            <p>Indlæser...</p>
+        }
+        else if (!recipes.Any())
+        {
+            <p>Ingen opskrifter fundet.</p>
+        }
+        else
+        {
+            <div class="container mt-4">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    @foreach (var recipe in recipes)
+                    {
+                        <div class="col">
+                            <a href="/recipe/@recipe.Id" class="card h-100 text-decoration-none border-0 shadow-sm">
+                                <div class="position-relative">
+                                    <img src="@recipe.ImageUrl" class="card-img-top img-fluid" alt="@recipe.Title" style="object-fit: cover; height: 200px;">
+                                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 text-white p-2">
+                                        <h5 class="card-title mb-1">@recipe.Title</h5>
+                                        <span class="badge rounded-pill bg-info text-dark align-self-start">@recipe.PreparationTime min</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </Authorized>
+    <NotAuthorized>
+        <p>Du skal være logget ind for at se dine opskrifter.</p>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private List<Recipe>? recipes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        recipes = await RecipeService.GetMyRecipesAsync();
+    }
+}

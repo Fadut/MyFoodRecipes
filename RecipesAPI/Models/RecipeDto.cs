@@ -25,5 +25,6 @@ namespace RecipesAPI.Models
 
         public string CuisineType { get; set; } = string.Empty;
 
+        //public string OwnerId { get; set; }
     }
 }

@@ -3,35 +3,35 @@
 @using RecipesAPI.Models
 @inject RecipeService RecipeService
 
-<h3>Recipes in the category: @Category</h3>
+<h3>Opskrifter i kategorien: @Category</h3>
 
 <div class="search-form mb-4">
-    <input type="text" @bind="title" class="form-control mb-2" placeholder="Search by title" />
-    <input type="text" @bind="ingredient" class="form-control mb-2" placeholder="Filter by ingredient: e.g. Kylling" />
-    <input type="number" @bind="preparationTime" class="form-control mb-2" placeholder="Filter by max time (min.)" />
+    <input type="text" @bind="title" class="form-control mb-2" placeholder="Søg efter titel" />
+    <input type="text" @bind="ingredient" class="form-control mb-2" placeholder="Filtrer på ingrediens: fx Kylling" />
+    <input type="number" @bind="preparationTime" class="form-control mb-2" placeholder="Filtrer efter maks tid (min.)" />
 
     <select @bind="selectedCategory" class="form-select form-select-lg mb-3 w-25">
-        <option value="">-- Choose category --</option>
-        <option value="Breakfast">Breakfast</option>
-        <option value="Lunch">Lunch</option>
-        <option value="Dinner">Dinner</option>
+        <option value="">-- Vælg kategori --</option>
+        <option value="Morgenmad">Morgenmad</option>
+        <option value="Frokost">Frokost</option>
+        <option value="Aftensmad">Aftensmad</option>
         <option value="Dessert">Dessert</option>
     </select>
 
     <select @bind="selectedCuisineType" class="form-select form-select-lg mb-3 w-25">
-        <option value="">-- Choose cuisine type --</option>
+        <option value="">-- Vælg køkkentype --</option>
         <option value="Global">Global</option>
-        <option value="Nordic">Nordic</option>
-        <option value="Asian">Asian</option>
-        <option value="Italian">Italian</option>
-        <option value="Indian">Indian</option>
-        <option value="African">African</option>
-        <option value="Mexican">Mexican</option>
-        <option value="Japanese">Japanese</option>
+        <option value="Nordisk">Nordisk</option>
+        <option value="Asiatisk">Asiatisk</option>
+        <option value="Italiensk">Italiensk</option>
+        <option value="Indisk">Indisk</option>  
+        <option value="Afrikansk">Afrikansk</option>
+        <option value="Mexicansk">Mexicansk</option>
+        <option value="Japansk">Japansk</option>
         <option value="Thai">Thai</option>
     </select>
 
-    <button class="btn btn-primary w-25" @onclick="SearchRecipes">Search</button>
+    <button class="btn btn-primary w-25" @onclick="SearchRecipes">Søg</button>
 
 </div>
 
@@ -58,7 +58,7 @@
 }
 else if (recipes is not null && !recipes.Any())
 {
-    <p>No recipes found.</p>
+    <p>Ingen opskrifter fundet.</p>
 }
 
 @code {

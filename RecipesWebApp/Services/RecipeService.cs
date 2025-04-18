@@ -28,9 +28,14 @@ namespace RecipesWebApp.Services
             return await _httpClient.GetFromJsonAsync<List<Recipe>>($"api/recipes/category/{category}");
         }
 
-        public async Task CreateRecipeAsync(Recipe recipe)
+        public async Task<List<Recipe>> GetMyRecipesAsync()
         {
-            await _httpClient.PostAsJsonAsync("api/recipes", recipe);
+            return await _httpClient.GetFromJsonAsync<List<Recipe>>("api/recipes/myrecipes");
+        }
+
+        public async Task CreateRecipeAsync(RecipeDto recipeDto)
+        {
+            await _httpClient.PostAsJsonAsync("api/recipes", recipeDto);
         }
 
         public async Task UpdateRecipeAsync(int id, Recipe recipe)

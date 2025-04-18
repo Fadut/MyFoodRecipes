@@ -19,5 +19,7 @@
         public string Category { get; set; } = string.Empty;
 
         public string CuisineType { get; set; } = string.Empty;
+
+        public string OwnerId {  get; set; }
     }
 }

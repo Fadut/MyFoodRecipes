@@ -1,15 +1,17 @@
 ﻿@using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Components.Server
 @using Microsoft.AspNetCore.Identity
+@using RecipesWebApp.Services
 @inject SignInManager<IdentityUser> SignInManager
 @inject NavigationManager Navigation
 @inject AuthenticationStateProvider AuthProvider
+@inject AuthService AuthService
 
 <AuthorizeView>
     <Authorized>
         <div class="d-flex align-items-center gap-3">
             <span class="text-success">Hello, @context.User.Identity?.Name!</span>
-            <button class="btn btn-outline-danger btn-sm" @onclick="Logout">Logout</button>
+            <button class="btn btn-outline-danger btn-sm" @onclick="LogoutAction">Logout</button>
         </div>
     </Authorized>
     <NotAuthorized>
@@ -18,10 +20,21 @@
 </AuthorizeView>
 
 @code {
-    private async Task Logout()
+    private async void LogoutAction()
     {
-        await SignInManager.SignOutAsync();
+        await AuthService.LogOutAsync();
         Navigation.NavigateTo("/", forceLoad: true);
     }
-    // TODO: Login status not working 
+
+    // private string? username;
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     var authState = await AuthProvider.GetAuthenticationStateAsync();
+    //     var user = authState.User;
+
+    //     if (user.Identity?.IsAuthenticated == true)
+    //     {
+    //         username = user.Identity.Name;
+    //     }
+    // }
 }
