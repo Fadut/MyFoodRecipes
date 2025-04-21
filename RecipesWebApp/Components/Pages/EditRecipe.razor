@@ -4,62 +4,114 @@
 @inject RecipeService RecipeService
 @inject NavigationManager Navigation
 
-<h3>Edit recipe</h3>
+<PageTitle>Rediger opskrift</PageTitle>
 
-@if (recipe == null)
+@if (recipe is null)
 {
-    <p>Loading...</p>
+    <p>Indlæser...</p>
 }
 else
 {
-    <div>
-        <label>Title:</label>
-        <input @bind="recipe.Title" class="form-control" />
+    <div class="container mt-5">
+        <div class="card shadow-lg">
+            <div class="card-header bg-success text-white">
+                <h2 class="mb-0">
+                    <i class="bi bi-pencil-square"></i>
+                    Rediger opskrift
+                </h2>
+            </div>
 
-        <label>Description:</label>
-        <textarea @bind="recipe.Description" class="form-control"></textarea>
+            <div class="card-body">
 
-        <label>Ingredients:</label>
-        <input @bind="newIngredient" placeholder="Add ingredient" />
-        <button @onclick="AddIngredient">Add</button>
+                <div class="mb-3 form-floating">
+                    <input @bind="recipe.Title" class="form-control" id="titleInput" placeholder="Opskriftstitel" />
+                    <label for="titleInput">Titel</label>
+                </div>
 
-        <ul>
-            @foreach (var ingredient in recipe.Ingredients)
-            {
-                <li>@ingredient <button @onclick="() => RemoveIngredient(ingredient)">❌</button></li>
-            }
-        </ul>
+                <div class="mb-3 form-floating">
+                    <textarea @bind="recipe.Description" class="form-control" id="descriptionInput" placeholder="Beskrivelse" style="height: 100px;"></textarea>
+                    <label for="descriptionInput">Beskrivelse</label>
+                </div>
 
-        <label>Instructions:</label>
-        <textarea @bind="recipe.Instructions" class="form-control" placeholder="1. Whip the eggs..."></textarea>
+                <label class="fw-bold">Ingredienser</label>
+                <div class="input-group mb-3" style="max-width: 400px;">
+                    <input @bind="newIngredient" @ref="ingredientInputRef" @onkeyup="HandleIngredientKeyUp" class="form-control" placeholder="Tilføj ingrediens" />
+                    <button class="btn btn-outline-success" type="button" @onclick="AddIngredient">
+                        <i class="bi bi-plus-lg"></i>
+                        Tilføj
+                    </button>
+                </div>
 
-        <label>Image URL:</label>
-        <input @bind="recipe.ImageUrl" class="form-control" />
+                <ul class="list-group mb-4" style="max-width: 400px;">
+                    @foreach (var ingredient in recipe.Ingredients)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            @ingredient
+                            <button class="btn btn-sm btn-outline-danger" @onclick="() => RemoveIngredient(ingredient)" title="Fjern">
+                                <i class="bi bi-x"></i>
+                            </button>
+                        </li>
+                    }
+                </ul>
 
-        <label>Category</label>
-        <select @bind="recipe.Category" class="form-control mb-2">
-            <option value="">Choose a category</option>
-            <option>Breakfast</option>
-            <option>Lunch</option>
-            <option>Dinner</option>
-            <option>Dessert</option>
-        </select>
+                <div class="mb-3 form-floating">
+                    <textarea @bind="recipe.Instructions" class="form-control" id="instructionsInput" placeholder="Instruktioner" style="height: 120px;"></textarea>
+                    <label for="instructionsInput">Instruktioner</label>
+                </div>
 
-        <label>Cuisine type</label>
-        <select @bind="recipe.CuisineType" class="form-control mb-2">
-            <option value="">Vælg køkken</option>
-            <option>Global</option>
-            <option>Nordic</option>
-            <option>Asian</option>
-            <option>Italian</option>
-            <option>Indian</option>
-            <option>African</option>
-            <option>Mexican</option>
-            <option>Japanese</option>
-            <option>Thai</option>
-        </select>
+                <div class="mb-3 form-floating">
+                    <input type="number" @bind="recipe.PreparationTime" class="form-control" id="prepTimeInput" placeholder="Tid i minutter" />
+                    <label for="prepTimeInput">Forberedelsestid (minutter)</label>
+                </div>
 
-        <button class="btn btn-success mt-3" @onclick="UpdateRecipe">Save changes</button>
+                <div class="mb-3 form-floating">
+                    <input @bind="recipe.ImageUrl" class="form-control" id="imageUrlInput" placeholder="https://..." @oninput="UpdateImagePreview" />
+                    <label for="imageUrlInput">Image URL</label>
+                </div>
+
+                @if (!string.IsNullOrWhiteSpace(recipe.ImageUrl))
+                {
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Preview</label>
+                        <img src="@recipe.ImageUrl" class="img-fluid rounded shadow-sm" style="max-height: 250px;" alt="Billede preview" />
+                    </div>
+                }
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Måltid</label>
+                    <select @bind="recipe.Category" class="form-select">
+                        <option value="">Vælg måltid</option>
+                        <option>Morgenmad</option>
+                        <option>Frokost</option>
+                        <option>Aftensmad</option>
+                        <option>Dessert</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Cuisine</label>
+                    <select @bind="recipe.CuisineType" class="form-select">
+                        <option value="">Vælg Cuisine</option>
+                        <option>Global</option>
+                        <option>Nordisk</option>
+                        <option>Asiatisk</option>
+                        <option>Italiensk</option>
+                        <option>Indisk</option>
+                        <option>Afrikansk</option>
+                        <option>Mexicansk</option>
+                        <option>Japansk</option>
+                        <option>Thai</option>
+                    </select>
+                </div>
+
+                <div class="d-grid mt-4">
+                    <button class="btn btn-success btn-lg" @onclick="UpdateRecipe">
+                        <i class="bi bi-arrow-clockwise"></i>
+                        Opdater opskrift
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 }
 
@@ -67,6 +119,7 @@ else
     [Parameter] public int id { get; set; }
     private Recipe? recipe;
     private string newIngredient = string.Empty;
+    private ElementReference ingredientInputRef;
 
     private void AddIngredient()
     {
@@ -74,12 +127,34 @@ else
         {
             recipe.Ingredients.Add(newIngredient);
             newIngredient = string.Empty;
+
+            // Adds focus back to field
+            _ = Task.Run(async () =>
+            {
+                await Task.Delay(50);
+                await ingredientInputRef.FocusAsync();
+            });
         }
     }
 
     private void RemoveIngredient(string ingredient)
     {
         recipe.Ingredients.Remove(ingredient);
+    }
+
+    // Uses onkeyup-method since onkeydown didn't function correctly
+    private void HandleIngredientKeyUp(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" || e.Key == "NumpadEnter")
+        {
+            AddIngredient();
+        }
+    }
+
+    private void UpdateImagePreview(ChangeEventArgs e)
+    {
+        // Only triggers when you press away from the field
+        StateHasChanged();
     }
 
     protected override async Task OnInitializedAsync()

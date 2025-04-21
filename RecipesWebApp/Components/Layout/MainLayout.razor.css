@@ -8,8 +8,11 @@ main {
     flex: 1;
 }
 
+/* This changes sidebar color*/
 .sidebar {
-    background-image: linear-gradient(180deg, rgb(0, 50, 0, 0.8) 0%, #3a0647 70%); /* This changes sidebar color*/
+    background-image: linear-gradient(180deg, rgb(0, 50, 0, 0.8) 0%, #3a0647 70%); 
+    /*background-image: linear-gradient(180deg, #003300 0%, #00a86b 200%);*/
+    /*background-image: linear-gradient(180deg, #004d00 0%, #007d5e 100%);*/
 }
 
 .top-row {

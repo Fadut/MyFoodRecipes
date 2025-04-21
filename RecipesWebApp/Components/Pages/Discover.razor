@@ -1,96 +1,93 @@
-﻿@page "/discover"
+﻿@page "/"
 @using RecipesAPI.Models
 @using RecipesWebApp.Services
 @inject RecipeService RecipeService
 
-<h2>Discover recipes!</h2>
+<PageTitle>Udforsk</PageTitle>
 
-<div class="search-form mb-4">
-    <input type="text" @bind="title" class="form-control mb-2" placeholder="Search by title" />
-    <input type="text" @bind="ingredient" class="form-control mb-2" placeholder="Filter by ingredient: e.g. Kylling" />
-    <input type="number" @bind="preparationTime" class="form-control mb-2" placeholder="Filter by max time (min.)" />
+@* Header section *@
+<div class="position-relative mb-5 rounded-3 overflow-hidden shadow-sm" style="height: 400px; background-image: url('/images/default.jpg'); background-size: cover; background-position: center;">
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.6);">
+        
+        <div class="h-100 d-flex flex-column justify-content-end align-items-start text-white p-4">
+            <h1 class="display-5 fw-bold mb-2">Udforsk lækre opskrifter</h1>
+            <h4 class="mb-3">Find din næste yndlingsret!</h4>
+        </div>
 
-    <select @bind="selectedCategory" class="form-select form-select-lg mb-3 w-25">
-        <option value="">-- Choose category --</option>
-        <option value="Breakfast">Breakfast</option>
-        <option value="Lunch">Lunch</option>
-        <option value="Dinner">Dinner</option>
-        <option value="Dessert">Dessert</option>
-    </select>
-
-    <select @bind="selectedCuisineType" class="form-select form-select-lg mb-3 w-25">
-        <option value="">-- Choose cuisine type --</option>
-        <option value="Global">Global</option>
-        <option value="Nordic">Nordic</option>
-        <option value="Asian">Asian</option>
-        <option value="Italian">Italian</option>
-        <option value="Indian">Indian</option>
-        <option value="African">African</option>
-        <option value="Mexican">Mexican</option>
-        <option value="Japanese">Japanese</option>
-        <option value="Thai">Thai</option>
-    </select>
-
-    <button class="btn btn-primary w-25" @onclick="SearchRecipes">Search</button>
-
+    </div>
 </div>
 
-<h2>Choose a category below!</h2>
+@* Search and filter section *@
+<div class="search-form mb-5 container">
+    <div class="row mb-3">
+        <div class="col-lg-12">
+            <input type="text" @bind="title" class="form-control" placeholder="Søg efter titel..." />
+        </div>
+    </div>
 
-<div class="container mt-4 mb-2">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-        <div class="col">
-            <NavLink href="/category/Breakfast" class="card h-100 text-decoration-none border-0 shadow-sm">
-                <div class="position-relative">
-                    <img src="/images/breakfast.jpg" class="card-img-top img-fluid" alt="Breakfast" style="object-fit: cover; height: 200px;">
-                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 text-white p-2">
-                        <h5 class="card-title mb-0">🥐 Breakfast</h5>
-                    </div>
-                </div>
-            </NavLink>
+    <div class="row mb-3">
+        <div class="col-lg-4">
+            <input type="text" @bind="ingredient" class="form-control" placeholder="Ingrediens (fx Kylling)" />
         </div>
 
-        <div class="col">
-            <NavLink href="/category/Lunch" class="card h-100 text-decoration-none border-0 shadow-sm">
-                <div class="position-relative">
-                    <img src="/images/lunch.jpg" class="card-img-top img-fluid" alt="Lunch" style="object-fit: cover; height: 200px;">
-                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 text-white p-2">
-                        <h5 class="card-title mb-0">🥪 Lunch</h5>
-                    </div>
-                </div>
-            </NavLink>
+        <div class="col-lg-4">
+            <select @bind="preparationTime" class="form-select">
+                <option value="">Maks tilberedningstid</option>
+                <option value="30">Under 30 minutter</option>
+                <option value="60">Under 1 time</option>
+                <option value="90">Under 1,5 time</option>
+            </select>
         </div>
 
-        <div class="col">
-            <NavLink href="/category/Dinner" class="card h-100 text-decoration-none border-0 shadow-sm">
-                <div class="position-relative">
-                    <img src="/images/dinner.jpg" class="card-img-top img-fluid" alt="Dinner" style="object-fit: cover; height: 200px;">
-                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 text-white p-2">
-                        <h5 class="card-title mb-0">🍝 Dinner</h5>
-                    </div>
-                </div>
-            </NavLink>
+        <div class="col-lg-4">
+            <select @bind="selectedCuisineType" class="form-select">
+                <option value="">-- Vælg cuisine --</option>
+                <option value="Global">Global</option>
+                <option value="Nordisk">Nordisk</option>
+                <option value="Asiatisk">Asiatisk</option>
+                <option value="Italiensk">Italiensk</option>
+                <option value="Indisk">Indisk</option>
+                <option value="Afrikansk">Afrikansk</option>
+                <option value="Mexicansk">Mexicansk</option>
+                <option value="Japansk">Japansk</option>
+                <option value="Thai">Thai</option>
+            </select>
         </div>
+    </div>
 
-        <div class="col">
-            <NavLink href="/category/Dessert" class="card h-100 text-decoration-none border-0 shadow-sm">
-                <div class="position-relative">
-                    <img src="/images/dessert.jpg" class="card-img-top img-fluid" alt="Dessert" style="object-fit: cover; height: 200px;">
-                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 text-white p-2">
-                        <h5 class="card-title mb-0">🍰 Dessert</h5>
-                    </div>
-                </div>
-            </NavLink>
+    <div class="row mb-3">
+        <div class="col-lg-12 text-center">
+            <button class="btn btn-primary w-100" @onclick="SearchRecipes">Søg</button>
         </div>
     </div>
 </div>
 
-<h2>Or browse through all available recipes below!</h2>
+@* Category section *@
+<div class="container mb-5">
+    <h2 class="text-center mb-4" style="border-bottom: 2px solid #ddd; padding-bottom: 10px;">Vælg et måltid</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        @foreach (var category in categoryCards)
+        {
+            <div class="col">
+                <NavLink href="@category.Link" class="card h-100 text-decoration-none border-0 shadow-sm">
+                    <div class="position-relative">
+                        <img src="@category.Image" class="card-img-top img-fluid" alt="@category.Title" style="object-fit: cover; height: 200px;">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 text-white p-2">
+                            <h5 class="card-title mb-0">@category.Emoji @category.Title</h5>
+                        </div>
+                    </div>
+                </NavLink>
+            </div>
+        }
+    </div>
+</div>
 
+@* All recipes section *@
+<div class="container mb-5">
+    <h2 class="text-center my-4" style="border-bottom: 2px solid #ddd; padding-bottom: 10px;">Udforsk alle opskrifter her!</h2>
 
-@if (recipes is not null && recipes.Any())
-{
-    <div class="container mt-4">
+    @if (recipes is not null && recipes.Any())
+    {
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach (var recipe in recipes)
             {
@@ -107,13 +104,12 @@
                 </div>
             }
         </div>
-    </div>
-}
-else if (recipes is not null && !recipes.Any())
-{
-    <p>No recipes found.</p>
-}
-
+    }
+    else if (recipes is not null && !recipes.Any())
+    {
+        <div class="alert alert-warning">Ingen opskrifter fundet.</div>
+    }
+</div>
 
 @code {
     private List<Recipe>? recipes;
@@ -123,6 +119,14 @@ else if (recipes is not null && !recipes.Any())
     private int? preparationTime;
     private string? selectedCategory;
     private string? selectedCuisineType;
+
+    private List<(string Title, string Image, string Link, string Emoji)> categoryCards = new()
+    {
+        ("Morgenmad", "/images/breakfast.jpg", "/category/Morgenmad", "🥐"),
+        ("Frokost", "/images/lunch.jpg", "/category/Frokost", "🥪"),
+        ("Aftensmad", "/images/dinner.jpg", "/category/Aftensmad", "🍝"),
+        ("Dessert", "/images/dessert.jpg", "/category/Dessert", "🍰")
+    };
 
     protected override async Task OnInitializedAsync()
     {

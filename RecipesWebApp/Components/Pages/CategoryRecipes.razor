@@ -3,37 +3,70 @@
 @using RecipesAPI.Models
 @inject RecipeService RecipeService
 
-<h3>Opskrifter i kategorien: @Category</h3>
+<PageTitle>@(Category ??  "Opskrifter")</PageTitle>
 
-<div class="search-form mb-4">
-    <input type="text" @bind="title" class="form-control mb-2" placeholder="Søg efter titel" />
-    <input type="text" @bind="ingredient" class="form-control mb-2" placeholder="Filtrer på ingrediens: fx Kylling" />
-    <input type="number" @bind="preparationTime" class="form-control mb-2" placeholder="Filtrer efter maks tid (min.)" />
+@* Header section *@
+<div class="position-relative mb-5 rounded-3 overflow-hidden shadow-sm" style="height: 400px; background-image: @heroImage; background-size: cover; background-position: center;">
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.6);">
 
-    <select @bind="selectedCategory" class="form-select form-select-lg mb-3 w-25">
-        <option value="">-- Vælg kategori --</option>
-        <option value="Morgenmad">Morgenmad</option>
-        <option value="Frokost">Frokost</option>
-        <option value="Aftensmad">Aftensmad</option>
-        <option value="Dessert">Dessert</option>
-    </select>
+        <div class="h-100 d-flex flex-column justify-content-end align-items-start text-white p-4">
+            <h1 class="display-5 fw-bold mb-2">@headerTitle</h1>
+            <h4 class="mb-3">@headerSubtitle</h4>
 
-    <select @bind="selectedCuisineType" class="form-select form-select-lg mb-3 w-25">
-        <option value="">-- Vælg køkkentype --</option>
-        <option value="Global">Global</option>
-        <option value="Nordisk">Nordisk</option>
-        <option value="Asiatisk">Asiatisk</option>
-        <option value="Italiensk">Italiensk</option>
-        <option value="Indisk">Indisk</option>  
-        <option value="Afrikansk">Afrikansk</option>
-        <option value="Mexicansk">Mexicansk</option>
-        <option value="Japansk">Japansk</option>
-        <option value="Thai">Thai</option>
-    </select>
-
-    <button class="btn btn-primary w-25" @onclick="SearchRecipes">Søg</button>
-
+        </div>
+    </div>
 </div>
+
+@* Category text section *@
+<h2 class="text-center my-4" style="border-bottom: 2px solid #ddd; padding-bottom: 10px;">@Category</h2>
+
+@* Search and filter section *@
+<div class="search-form mb-5 container">
+    <div class="row mb-3">
+        <div class="col-lg-12">
+            <input type="text" @bind="title" class="form-control" placeholder="Søg efter titel..." />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-lg-4">
+            <input type="text" @bind="ingredient" class="form-control" placeholder="Ingrediens (fx Kylling)" />
+        </div>
+
+        <div class="col-lg-4">
+            <select @bind="preparationTime" class="form-select">
+                <option value="">Maks tilberedningstid</option>
+                <option value="30">Under 30 minutter</option>
+                <option value="60">Under 1 time</option>
+                <option value="90">Under 1,5 time</option>
+            </select>
+        </div>
+
+        <div class="col-lg-4">
+            <select @bind="selectedCuisineType" class="form-select">
+                <option value="">-- Vælg cuisine --</option>
+                <option value="Global">Global</option>
+                <option value="Nordisk">Nordisk</option>
+                <option value="Asiatisk">Asiatisk</option>
+                <option value="Italiensk">Italiensk</option>
+                <option value="Indisk">Indisk</option>
+                <option value="Afrikansk">Afrikansk</option>
+                <option value="Mexicansk">Mexicansk</option>
+                <option value="Japansk">Japansk</option>
+                <option value="Thai">Thai</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-lg-12 text-center">
+            <button class="btn btn-primary w-100" @onclick="SearchRecipes">Søg</button>
+        </div>
+    </div>
+</div>
+
+@* All recipes section *@
+<h2 class="text-center my-4" style="border-bottom: 2px solid #ddd; padding-bottom: 10px;">Se alle opskrifter her!</h2>
 
 @if (recipes is not null && recipes.Any())
 {
@@ -62,9 +95,45 @@ else if (recipes is not null && !recipes.Any())
 }
 
 @code {
-    [Parameter] public string Category { get; set; }
+    [Parameter] public string? Category { get; set; }
 
     private List<Recipe>? recipes;
+
+    private string heroImage = "/images/default.jpg";
+    private string headerTitle = "Opskrifter";   
+    private string headerSubtitle = "Find din næste yndlingsret!";
+
+    protected override void OnParametersSet()
+    {
+        switch (Category?.ToLower())
+        {
+            case "morgenmad":
+                heroImage = "url('/images/breakfast.jpg')";
+                headerTitle = "Morgenmadsretter";
+                headerSubtitle = "Find din favoritret at vågne op til!";
+                break;
+            case "frokost":
+                heroImage = "url('/images/lunch.jpg')";
+                headerTitle = "Frokostfavoritter";
+                headerSubtitle = "Lækre ideer til din frokostpause.";
+                break;
+            case "aftensmad":
+                heroImage = "url('/images/dinner.jpg')";
+                headerTitle = "Aftensmad du vil elske";
+                headerSubtitle = "Perfekte retter til aftenen.";
+                break;
+            case "dessert":
+                heroImage = "url('/images/dessert.jpg')";
+                headerTitle = "Søde desserter";
+                headerSubtitle = "Forkæl dig selv med noget sødt!";
+                break;
+            default:
+                heroImage = "url('/images/default.jpg')";
+                headerTitle = "Udforsk opskrifter";
+                headerSubtitle = "Find din næste yndlingsret!";
+                break;
+        }
+    }
 
     private string? title;
     private string? ingredient;

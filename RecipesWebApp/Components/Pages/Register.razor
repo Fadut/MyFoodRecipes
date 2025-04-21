@@ -7,36 +7,58 @@
 @inject NavigationManager Navigation
 @inject AuthService AuthService
 
-<h3 class="mt-4 mb-3 text-center">Sign up to get access to exclusive content</h3>
+<PageTitle>Opret bruger</PageTitle>
 
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <EditForm Model="registerModel" OnValidSubmit="HandleRegister">
-                <DataAnnotationsValidator />
-                <ValidationSummary />
-
-                <div class="form-group mb-3">
-                    <label for="username">Username</label>
-                    <InputText id="username" class="form-control" @bind-Value="registerModel.Username" />
+<section class="">
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+        <div class="container">
+            <div class="row gx-lg-5 align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="my-5 display-3 fw-bold ls-tight">
+                        Få adgang <br />
+                        <span class="text-success">til dine egne opskrifter</span>
+                    </h1>
+                    <p style="color: hsl(217, 10%, 50.8%)">
+                        Registrér dig som bruger og begynd at oprette og gemme dine egne yndlingsopskrifter i dag!
+                    </p>
                 </div>
 
-                <div class="form-group mb-3">
-                    <label for="password">Password</label>
-                    <InputText id="password" type="password" class="form-control" @bind-Value="registerModel.Password" />
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="card">
+                        <div class="card-body py-5 px-md-5">
+                            <EditForm Model="registerModel" OnValidSubmit="HandleRegister">
+                                <DataAnnotationsValidator />
+                                <ValidationSummary />
+
+                                <!-- Username -->
+                                <div class="form-outline mb-4">
+                                    <InputText id="username" class="form-control" @bind-Value="registerModel.Username" />
+                                    <label class="form-label" for="username">Brugernavn</label>
+                                </div>
+
+                                <!-- Password -->
+                                <div class="form-outline mb-4">
+                                    <InputText id="password" type="password" class="form-control" @bind-Value="registerModel.Password" />
+                                    <label class="form-label" for="password">Kodeord</label>
+                                </div>
+
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary btn-block mb-4">
+                                    Registrer
+                                </button>
+                            </EditForm>
+
+                            @if (!string.IsNullOrEmpty(message))
+                            {
+                                <div class="alert alert-info text-center mt-3">@message</div>
+                            }
+                        </div>
+                    </div>
                 </div>
-
-                <button type="submit" class="btn btn-success">Register</button>
-            </EditForm>
-
-            @if (!string.IsNullOrEmpty(message))
-            {
-                <div class="alert alert-info text-center">@message</div>
-            }
-
+            </div>
         </div>
     </div>
-</div>
+</section>
 
 @code {
     private RegisterModel registerModel = new();

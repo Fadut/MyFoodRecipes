@@ -4,39 +4,56 @@
 @inject RecipeService RecipeService
 @inject HttpClient Http
 
-<h3>@(recipe?.Title ?? "Loading...")</h3>
+<PageTitle>Detaljer</PageTitle>
+
+<h1 class="text-center mt-4">@(recipe?.Title ?? "Indlæser...")</h1>
 
 @if (recipe is not null)
 {
-    <img src="@recipe.ImageUrl" class="card-img-top img-fluid" alt="@recipe.Title" style="object-fit: cover; height: 300px; width: 300px;">
+    <div class="container mt-4">
+        <!-- Top section: Image + Info -->
+        <div class="row g-4">
+            <div class="col-md-5">
+                <img src="@recipe.ImageUrl" alt="@recipe.Title" class="img-fluid rounded shadow" style="object-fit: cover; height: 100%; max-height: 350px; width: 100%;" />
+            </div>
+            <div class="col-md-7">
+                <div class="mb-3">
+                    <span class="badge bg-primary me-2"><i class="bi bi-hourglass-split me-1"></i> @recipe.PreparationTime min</span>
+                    <span class="badge bg-success me-2"><i class="bi bi-tag me-1"></i> @recipe.Category</span>
+                    <span class="badge bg-warning text-dark"><i class="bi bi-globe me-1"></i> @recipe.CuisineType</span>
+                </div>
+                <h5 class="fw-bold mt-3">Beskrivelse</h5>
+                <p class="text-muted">@recipe.Description</p>
+            </div>
+        </div>
 
-    <h4>Description</h4>
-    <p>@recipe.Description</p>
+        <!-- Divider -->
+        <hr class="my-4" />
 
-    <h4>Ingredients:</h4>
-    <ul>
-        @foreach (var ingredient in recipe.Ingredients)
-        {
-            <li>@ingredient</li>
-        }
-    </ul>
+        <!-- Bottom section: Ingredients + Instructions -->
+        <div class="row">
+            <div class="col-md-6">
+                <h5 class="fw-bold">Ingredienser</h5>
+                <ul class="list-group list-group-flush">
+                    @foreach (var ingredient in recipe.Ingredients)
+                    {
+                        <li class="list-group-item">@ingredient</li>
+                    }
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h5 class="fw-bold">Instruktioner</h5>
+                <p class="text-muted" style="white-space: pre-line;">@recipe.Instructions</p>
 
-    <h4>Instructions:</h4>
-    <p>@recipe.Instructions</p>
-
-    <h4>Preparation time:</h4>
-    <p>@recipe.PreparationTime minutes</p>
-
-    <h4>Category</h4>
-   <p>@recipe.Category</p>
-
-   <h4>Cuisine Type</h4>
-   <p>@recipe.CuisineType</p>
-
+            </div>
+        </div>
+    </div>
 }
 else
 {
-    <p>Recipe not found.</p>
+    <div class="alert alert-warning text-center mt-4">
+        Opskrift kunne ikke findes.
+    </div>
 }
 
 @code {

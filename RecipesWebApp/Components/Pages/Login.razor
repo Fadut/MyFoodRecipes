@@ -6,33 +6,63 @@
 @inject NavigationManager Navigation
 @inject AuthService AuthService
 
-<h3 class="mt-4 mb-3 text-center">Login to your account</h3>
+<PageTitle>Log ind</PageTitle>
 
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
+<section class="vh-100" style="background-color: rgba(0, 50, 0, 0.8);">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-5 d-none d-md-block">
+                            <img src="/images/login-form.jpg"
+                                 alt="login form" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 1rem 0 0 1rem;" />
+                        </div>
+                        <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5 text-black w-100">
 
-            <EditForm Model="loginModel" OnValidSubmit="HandleLogin">
-                <DataAnnotationsValidator />
-                <ValidationSummary />
+                                <EditForm Model="loginModel" OnValidSubmit="HandleLogin">
+                                    <DataAnnotationsValidator />
+                                    <ValidationSummary />
 
-                <div class="form-group mb-3">
-                    <label for="username">Username</label>
-                    <InputText id="username" class="form-control" @bind-Value="loginModel.Username" />
+                                    <div class="d-flex align-items-center mb-3 pb-1">
+                                        <i class="bi bi-egg-fried" style="font-size: 2rem; color: #176623; margin-right: 0.75rem;"></i>
+                                        <span class="h1 fw-bold mb-0">My Food Recipes</span>
+                                    </div>
+
+                                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log på din konto</h5>
+
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="username">Brugernavn</label>
+                                        <InputText id="username" class="form-control form-control-lg" @bind-Value="loginModel.Username" />
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="password">Kodeord</label>
+                                        <InputText id="password" type="password" class="form-control form-control-lg" @bind-Value="loginModel.Password" />
+                                    </div>
+
+                                    <div class="pt-1 mb-4">
+                                        <button class="btn btn-dark btn-lg btn-block" type="submit">Log ind</button>
+                                    </div>
+
+                                    <a class="small text-muted">Glemt kodeord?</a>
+
+                                    <p class="mb-5 pb-lg-2" style="color: #393f81;">
+                                        Har du ikke en konto? <a href="/register" style="color: #393f81;">Opret her</a>
+                                    </p>
+                                    <a class="small text-muted me-2">Betingelser</a>
+                                    <a class="small text-muted">Privatliv</a>
+                                </EditForm>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="form-group mb-3">
-                    <label for="password">Password</label>
-                    <InputText id="password" type="password" class="form-control" @bind-Value="loginModel.Password" />
-                </div>
-
-                <button type="submit" class="btn btn-primary">Log in</button>
-            </EditForm>
-
-
+            </div>
         </div>
     </div>
-</div>
+</section>
 
 @code {
     private LoginModel loginModel = new();
