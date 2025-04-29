@@ -38,6 +38,16 @@ namespace RecipesWebApp.Services
             await _httpClient.PostAsJsonAsync("api/recipes", recipeDto);
         }
 
+        public async Task SaveRecipeAsync(int recipeId)
+        {
+            var response = await _httpClient.PostAsync($"api/recipes/save/{recipeId}", null);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Could not save recipe.");
+            }
+        }
+
         public async Task UpdateRecipeAsync(int id, Recipe recipe)
         {
             await _httpClient.PutAsJsonAsync($"api/recipes/{id}", recipe);

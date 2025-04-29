@@ -100,6 +100,45 @@ namespace RecipesAPI.Controllers
             return CreatedAtAction(nameof(GetRecipe), new { id = recipe.Id }, recipe);
         }
 
+        [HttpPost("save/{recipeId}")]
+        [Authorize]
+        public async Task<IActionResult> SaveRecipe(int recipeId)
+        {
+            var originalRecipe = await _context.Recipes.FindAsync(recipeId);
+
+            if (originalRecipe is null)
+            {
+                return NotFound();
+            }
+
+            // Find OwnerId from logged in user
+            var ownerId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (ownerId is null)
+            {
+                return Unauthorized();
+            }
+
+            // Create a copy of the recipe
+            var newRecipe = new Recipe
+            {
+                Title = originalRecipe.Title,
+                Description = originalRecipe.Description,
+                //Ingredients = new List<string>(originalRecipe.Ingredients),
+                Ingredients = originalRecipe.Ingredients,
+                PreparationTime = originalRecipe.PreparationTime,
+                Category = originalRecipe.Category,
+                CuisineType = originalRecipe.CuisineType,
+                ImageUrl = originalRecipe.ImageUrl,
+                OwnerId = ownerId // Set id to new owner
+            };
+
+            _context.Recipes.Add(newRecipe);
+            await _context.SaveChangesAsync();
+
+            return Ok(newRecipe);
+        }
+
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateRecipe(int id, [FromBody] RecipeDto recipeDto)
         {

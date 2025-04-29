@@ -19,6 +19,39 @@
             <i class="bi bi-plus-circle me-1"></i> Opret ny opskrift
         </button>
 
+        @* Shopping list button *@
+        <button class="btn btn-primary mb-4 ms-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingListOffcanvas" aria-controls="shoppingListOffcanvas">
+            🛒 Åbn indkøbsliste (@shoppingList.Count)
+        </button>
+
+        @* Bootstrap offcanvas to show shopping list as a sidebar *@
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="shoppingListOffcanvas" aria-labelledby="shoppingListLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="shoppingListLabel">Min Indkøbsliste</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                @if (shoppingList.Count == 0)
+                {
+                    <p>Ingen varer i indkøbslisten endnu.</p>
+                }
+                else
+                {
+                    <ul class="list-group">
+                        @foreach (var item in shoppingList)
+                        {
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                @item
+                                <button class="btn btn-sm btn-outline-danger" @onclick="@(() => RemoveFromShoppingList(item))">Fjern</button>
+                            </li>
+                        }
+                    </ul>
+
+                    <button class="btn btn-danger mt-3" @onclick="ClearShoppingList">Tøm hele listen</button>
+                }
+            </div>
+        </div>
+
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             @foreach (var recipe in recipes)
             {
@@ -52,6 +85,8 @@
                             <div class="mt-auto d-flex gap-2">
                                 <button class="btn btn-warning btn-sm w-100" @onclick="() => EditRecipe(recipe.Id)">Rediger</button>
                                 <button class="btn btn-danger btn-sm w-100" @onclick="() => ConfirmDelete(recipe.Id, recipe.Title)">Slet</button>
+                                <button class="btn btn-info btn-sm w-100" @onclick="() => SaveRecipe(recipe.Id)">Gem til min konto</button>
+                                <button class="btn btn-success btn-sm w-100" @onclick="() => AddRecipeToShoppingList(recipe)">Tilføj til indkøbsliste</button>
                             </div>
                         </div>
                     </div>
@@ -61,6 +96,7 @@
     }
 </div>
 
+@* Modal *@
 @if (showConfirm)
 {
     <div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
@@ -82,12 +118,29 @@
     </div>
 }
 
+@* Toast popup message *@
+@if (!string.IsNullOrEmpty(toastMessage))
+{
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1055;">
+        <div class="toast align-items-center text-white bg-success border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    @toastMessage
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" @onclick="() => toastMessage = null" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+}
+
 @code {
     private List<Recipe>? recipes;
 
     private bool showConfirm = false;
     private int recipeIdToDelete;
     private string recipeTitleToDelete = "";
+    private string? toastMessage;
+    private List<string> shoppingList = new();
 
     protected override async Task OnInitializedAsync()
     {
@@ -112,9 +165,50 @@
         showConfirm = false;
     }
 
-    // private async Task DeleteRecipe(int id)
-    // {
-    //     await RecipeService.DeleteRecipeAsync(id);
-    //     recipes = await RecipeService.GetRecipesAsync();
-    // }
+    private async void ShowToast(string message)
+    {
+        toastMessage = message;
+        StateHasChanged(); // Update UI
+        await Task.Delay(5000); // Wait 3 seconds
+        toastMessage = null;
+        StateHasChanged(); // Hide toast again
+    }
+
+    private async Task SaveRecipe(int recipeId)
+    {
+        try
+        {
+            await RecipeService.SaveRecipeAsync(recipeId);
+            ShowToast("Opskrift gemt!");
+            Console.WriteLine($"Recipe saved. Id: {recipeId}");
+        }
+        catch (Exception ex)
+        {
+            ShowToast("Fejl: Kunne ikke gemme opskriften");
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+    }
+
+    private void AddRecipeToShoppingList(Recipe recipe)
+    {
+        foreach (var ingredient in recipe.Ingredients)
+        {
+            if (!shoppingList.Contains(ingredient)) // Avoid duplicates
+            {
+                shoppingList.Add(ingredient);
+            }
+        }
+        ShowToast($"Ingredienser fra '{recipe.Title}' tilføjet!");
+    }
+
+    private void RemoveFromShoppingList(string item)
+    {
+        shoppingList.Remove(item);
+    }
+
+    private void ClearShoppingList()
+    {
+        shoppingList.Clear();
+    }
+
 }
